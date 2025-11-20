@@ -77,7 +77,8 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 100px;
+            padding-bottom: 3rem;
         }
 
         .hero-section::before {
@@ -183,10 +184,12 @@
             position: relative;
         }
 
-        .hero-icon {
-            font-size: 25rem;
-            color: var(--white);
+        .hero-logo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
             opacity: 0.15;
+            filter: brightness(0) invert(1);
         }
 
         .services-section {
@@ -212,11 +215,11 @@
 
         .service-card {
             position: relative;
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 3 / 4;
             border: none;
             border-radius: 1rem;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(35, 25, 113, 0.9) 0%, rgba(45, 60, 230, 0.85) 60%, rgba(224, 155, 31, 0.85) 100%);
+            background: var(--strong-blue);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
             color: var(--white);
             display: flex;
@@ -230,26 +233,60 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.16);
         }
 
+        .service-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .service-image.primary {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .service-image.secondary {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .service-card:hover .service-image.primary {
+            opacity: 0;
+        }
+
+        .service-card:hover .service-image.secondary {
+            opacity: 1;
+        }
+
         .service-card .card-body {
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             height: 100%;
+            flex: 1;
         }
 
         .service-card .badge {
-            align-self: flex-start;
-            background-color: rgba(255, 255, 255, 0.15);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: rgba(35, 25, 113, 0.9);
             color: var(--white);
             border-radius: 999px;
             padding: 0.4rem 0.9rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
+            z-index: 3;
         }
 
         .service-title {
@@ -305,8 +342,8 @@
                 font-size: 1.1rem;
             }
 
-            .hero-icon {
-                font-size: 12rem;
+            .hero-logo {
+                max-width: 350px;
                 opacity: 0.1;
             }
         }
@@ -365,8 +402,8 @@
                 font-size: 0.85rem;
             }
 
-            .hero-icon {
-                font-size: 8rem;
+            .hero-logo {
+                max-width: 250px;
                 margin-top: 2rem;
             }
 
@@ -477,7 +514,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center mt-5 mt-lg-0 hero-image-container">
-                    <i class="bi bi-heart-pulse hero-icon"></i>
+                    <img src="resources/img/logo hope blanco.png" alt="Logo HOPE" class="hero-logo">
                 </div>
             </div>
         </div>
@@ -495,9 +532,12 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="card service-card h-100">
+                        <span class="badge">Urgencias 24/7</span>
+                        <div class="service-image-container">
+                            <img src="resources/img/vet_1.jpg" alt="Consulta General" class="service-image primary">
+                            <img src="resources/img/vet_2.jpg" alt="Consulta General" class="service-image secondary">
+                        </div>
                         <div class="card-body">
-                            <span class="badge">Urgencias 24/7</span>
-                            <div class="service-icon"><i class="bi bi-clipboard2-pulse"></i></div>
                             <h3 class="service-title">Consulta General y Diagnóstico</h3>
                             <p class="service-text">Evaluamos a tu mascota en la comodidad de tu casa, con revisión completa, diagnóstico rápido y plan de tratamiento personalizado.</p>
                             <div class="service-footer">
@@ -509,9 +549,12 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="card service-card h-100">
+                        <span class="badge">Seguimiento</span>
+                        <div class="service-image-container">
+                            <img src="resources/img/service-2-primary.jpg" alt="Vacunación" class="service-image primary">
+                            <img src="resources/img/service-2-secondary.jpg" alt="Vacunación" class="service-image secondary">
+                        </div>
                         <div class="card-body">
-                            <span class="badge">Seguimiento</span>
-                            <div class="service-icon"><i class="bi bi-shield-check"></i></div>
                             <h3 class="service-title">Vacunación y Desparasitación</h3>
                             <p class="service-text">Aplicamos esquemas de vacunación y control de parásitos sin estrés, manteniendo al día la salud preventiva de tu compañero.</p>
                             <div class="service-footer">
@@ -523,9 +566,12 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="card service-card h-100">
+                        <span class="badge">Bienestar</span>
+                        <div class="service-image-container">
+                            <img src="resources/img/service-3-primary.jpg" alt="Rehabilitación" class="service-image primary">
+                            <img src="resources/img/service-3-secondary.jpg" alt="Rehabilitación" class="service-image secondary">
+                        </div>
                         <div class="card-body">
-                            <span class="badge">Bienestar</span>
-                            <div class="service-icon"><i class="bi bi-heart-pulse-fill"></i></div>
                             <h3 class="service-title">Cuidados Crónicos y Rehabilitación</h3>
                             <p class="service-text">Controlamos enfermedades crónicas, administramos tratamientos y diseñamos planes de rehabilitación adaptados a cada paciente.</p>
                             <div class="service-footer">
